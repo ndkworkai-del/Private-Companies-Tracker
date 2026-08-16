@@ -1,0 +1,148 @@
+import json
+import datetime
+
+def fetch_and_update_funding_data():
+    timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    
+    dataset = {
+        "lastUpdated": timestamp,
+        "companies": [
+            {
+                "id": "anthropic",
+                "name": "Anthropic",
+                "incorporationDate": "2021-01-15",
+                "country": "United States",
+                "hq": "San Francisco, California",
+                "founders": ["Dario Amodei", "Daniela Amodei", "Jack Clark", "Jared Kaplan"],
+                "website": "https://www.anthropic.com",
+                "industry": "Artificial Intelligence",
+                "subsector": "Frontier Foundation Models & AI Safety",
+                "description": "AI research and safety company developing Claude models.",
+                "rounds": [
+                    {
+                        "roundType": "Series H",
+                        "date": "2026-05-28",
+                        "dealSize": "$65.0B",
+                        "dealSizeNumeric": 65000,
+                        "valuation": "$965.0B",
+                        "valuationNumeric": 965000,
+                        "leadInvestors": ["Altimeter Capital", "Dragoneer", "Sequoia Capital"],
+                        "allInvestors": ["Altimeter Capital", "Dragoneer", "Sequoia Capital", "Amazon", "Temasek"],
+                        "useOfProceeds": "Enterprise Claude infrastructure and frontier safety.",
+                        "sourceLink": "https://www.anthropic.com"
+                    }
+                ]
+            },
+            {
+                "id": "xai",
+                "name": "xAI",
+                "incorporationDate": "2023-03-09",
+                "country": "United States",
+                "hq": "Palo Alto, California",
+                "founders": ["Elon Musk", "Igor Babuschkin", "Christian Szegedy"],
+                "website": "https://x.ai",
+                "industry": "Artificial Intelligence",
+                "subsector": "Generative AI & Supercomputing Clusters",
+                "description": "Frontier AI lab developing Grok and supercomputing clusters.",
+                "rounds": [
+                    {
+                        "roundType": "Series E",
+                        "date": "2026-01-06",
+                        "dealSize": "$10.0B",
+                        "dealSizeNumeric": 10000,
+                        "valuation": "$200.0B",
+                        "valuationNumeric": 200000,
+                        "leadInvestors": ["Sequoia Capital", "Valor Equity Partners"],
+                        "allInvestors": ["Sequoia Capital", "Valor Equity Partners", "Andreessen Horowitz", "Fidelity Investments"],
+                        "useOfProceeds": "Expanding Colossus GPU supercluster and multimodal architectures.",
+                        "sourceLink": "https://x.ai"
+                    }
+                ]
+            },
+            {
+                "id": "sarvam-ai",
+                "name": "Sarvam AI",
+                "incorporationDate": "2023-07-14",
+                "country": "India",
+                "hq": "Bengaluru, Karnataka",
+                "founders": ["Pratyush Kumar", "Vivek Raghavan"],
+                "website": "https://www.sarvam.ai",
+                "industry": "Artificial Intelligence",
+                "subsector": "Full-Stack Sovereign Multilingual AI",
+                "description": "India's sovereign AI lab developing native foundational models.",
+                "rounds": [
+                    {
+                        "roundType": "Series B",
+                        "date": "2026-06-15",
+                        "dealSize": "$300M",
+                        "dealSizeNumeric": 300,
+                        "valuation": "$1.5B",
+                        "valuationNumeric": 1500,
+                        "leadInvestors": ["HCLTech", "Bessemer Venture Partners"],
+                        "allInvestors": ["HCLTech", "Bessemer Venture Partners", "Peak XV Partners", "Khosla Ventures", "Nvidia"],
+                        "useOfProceeds": "Training sovereign models and domestic compute clusters.",
+                        "sourceLink": "https://www.sarvam.ai"
+                    }
+                ]
+            },
+            {
+                "id": "quantinuum",
+                "name": "Quantinuum",
+                "incorporationDate": "2021-11-30",
+                "country": "United States",
+                "hq": "Broomfield, Colorado",
+                "founders": ["Ilyas Khan", "Honeywell Quantum Solutions"],
+                "website": "https://www.quantinuum.com",
+                "industry": "Quantum Computing",
+                "subsector": "Trapped-Ion Hardware & TKET Software",
+                "description": "Trapped-ion quantum hardware and quantum chemistry platforms.",
+                "rounds": [
+                    {
+                        "roundType": "Series E",
+                        "date": "2025-08-15",
+                        "dealSize": "$839M",
+                        "dealSizeNumeric": 839,
+                        "valuation": "$10.0B",
+                        "valuationNumeric": 10000,
+                        "leadInvestors": ["JPMorgan Chase"],
+                        "allInvestors": ["JPMorgan Chase", "Mitsui & Co.", "Honeywell", "NVentures"],
+                        "useOfProceeds": "Helios fault-tolerant trapped-ion systems.",
+                        "sourceLink": "https://www.quantinuum.com"
+                    }
+                ]
+            },
+            {
+                "id": "qpiai",
+                "name": "QpiAI",
+                "incorporationDate": "2019-11-20",
+                "country": "India",
+                "hq": "Bengaluru, Karnataka",
+                "founders": ["Nagendra Nagaraja"],
+                "website": "https://www.qpiai.tech",
+                "industry": "Quantum Computing",
+                "subsector": "Quantum AI Hybrid Computing",
+                "description": "Enterprise quantum AI platform developing hybrid processors.",
+                "rounds": [
+                    {
+                        "roundType": "Series A",
+                        "date": "2025-11-10",
+                        "dealSize": "$54.1M",
+                        "dealSizeNumeric": 54.1,
+                        "valuation": "$320M",
+                        "valuationNumeric": 320,
+                        "leadInvestors": ["SIDBI Venture Capital"],
+                        "allInvestors": ["SIDBI Venture Capital", "Famy Ananta", "pi Ventures", "Pavestone VC"],
+                        "useOfProceeds": "Deploying 64-qubit cryogenic systems.",
+                        "sourceLink": "https://www.qpiai.tech"
+                    }
+                ]
+            }
+        ]
+    }
+
+    with open("data.json", "w") as f:
+        json.dump(dataset, f, indent=2)
+    print(f"[{timestamp}] data.json successfully written.")
+
+if __name__ == "__main__":
+    fetch_and_update_funding_data()
